@@ -11,7 +11,6 @@ welMessage.addEventListener('click', () => {
 })
 
 btnIcons.addEventListener('click', () => {
-
     if ( menuIcon.style.display !== 'none' ){
         menuIcon.style.display = 'none';
         mobileMenu.style.display = 'flex';
@@ -25,7 +24,6 @@ btnIcons.addEventListener('click', () => {
 })
 
 actionBtn.addEventListener('click', () => {
-
     if ( hidedBox.style.display !== 'none' ){
         hidedBox.style.display = 'flex';
     }
