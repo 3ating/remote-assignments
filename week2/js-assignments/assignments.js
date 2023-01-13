@@ -6,7 +6,7 @@ function max(numbers){
   let len = numbers.length;
   let maxNum = numbers[0];
   
-  for ( var i=0; i<len; i++ ){
+  for (var i=0; i<len; i++){
     if (numbers[i] > maxNum){
       maxNum = numbers[i];
     }
@@ -45,9 +45,9 @@ console.log(calculate({ n1: 1, n2: 6, op: 'x' }));
 
 function calculate(data) {
   // your code here
-  var total = 0;
-  var discount = 1 - data.discount;
-  var numbers = data.products.length;
+  let total = 0;
+  let discount = 1 - data.discount;
+  let numbers = data.products.length;
     
   for (var i=0; i<numbers; i++){
     total += data.products[i].price;
@@ -74,3 +74,29 @@ const discountedPrice = calculate({
 });
   
 console.log(discountedPrice); // show the total price of all products after applying a discount
+
+// Assignment 5: Algorithm (Advanced Optional)
+// Given an array of integers, return indices of the two numbers such that they add up to a specific target. 
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+function twoSum(nums, target) {
+  // your code here
+  let sumMap = new Map();
+  let len = nums.length
+  for (var i=0; i<len; i++){
+    sumMap.set(nums[i],i);
+  }
+  for (var j=0; j<len; j++){
+    let goal = target - nums[j];
+    if (sumMap.has(goal)){
+      return [j, sumMap.get(goal)]
+    }
+  }
+}
+
+/*
+For example:
+twoSum([2, 7, 11, 15], 9); Should returns:
+[0, 1] Because:
+nums[0] + nums[1] is 9
+*/
