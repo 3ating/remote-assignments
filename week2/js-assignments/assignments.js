@@ -6,7 +6,7 @@ function max(numbers){
   let len = numbers.length;
   let maxNum = numbers[0];
   
-  for (var i=0; i<len; i++){
+  for (let i=0; i<len; i++){
     if (numbers[i] > maxNum){
       maxNum = numbers[i];
     }
@@ -49,7 +49,7 @@ function calculate(data) {
   let discount = 1 - data.discount;
   let numbers = data.products.length;
     
-  for (var i=0; i<numbers; i++){
+  for (let i=0; i<numbers; i++){
     total += data.products[i].price;
   }
   let finalprice = total*discount;
@@ -83,10 +83,10 @@ function twoSum(nums, target) {
   // your code here
   let sumMap = new Map();
   let len = nums.length
-  for (var i=0; i<len; i++){
+  for (let i=0; i<len; i++){
     sumMap.set(nums[i],i);
   }
-  for (var j=0; j<len; j++){
+  for (let j=0; j<len; j++){
     let goal = target - nums[j];
     if (sumMap.has(goal)){
       return [j, sumMap.get(goal)]
