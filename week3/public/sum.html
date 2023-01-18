@@ -12,32 +12,31 @@
             <input type="text" id="num-input" />
             <button type="button" onclick="getNumber()">Get the Answer</button>
         </div>
+
         <h2 id="result"></h2>
         <script>
             function getNumber() {
                 let num = document.getElementById("num-input").value;
 
-                fetch(`http://localhost:3000/getData?number=${num}`, {
-                    method: "POST",
-                })
-                    .then((res) => {
-                        return res.json();
+                if (!isNaN(num)) {
+                    fetch(`http://localhost:3000/getData?number=${num}`, {
+                        method: "GET",
+                        mode: "cors",
+                        // credentials: "include",
+                        headers: {
+                            authToken: "token",
+                            "Content-Type": "application/json",
+                        },
                     })
-                    .then((data) => {
-                        console.log("POST ans:" + data.sum);
-                        document.querySelector("#result").innerHTML = `The Answer is : ${data.sum}`;
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-
-                fetch(`http://localhost:3000/getData?number=${num}`, {
-                    method: "GET",
-                })
-                    .then((data) => {
-                        console.log("ans is:" + data.sum);
-                    })
-                    .catch((err) => console.error(err));
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log(data.sum);
+                            document.querySelector("#result").innerHTML = `The Answer is : ${data.sum}`;
+                        })
+                        .catch((err) => console.error(err));
+                } else {
+                    document.querySelector("#result").innerHTML = "Please input a number!";
+                }
             }
         </script>
     </body>
