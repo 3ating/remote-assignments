@@ -27,14 +27,13 @@ app.get("/getData", (req, res) => {
         }
         res.set("Content-Type", "application/json");
         res.send(JSON.stringify({ sum: sum }));
-    } else if (!number) {
-        res.send("<h2 style='color: red'>Lack of Parameter</h2>");
+    } else if (number == "") {
+        res.send(JSON.stringify({ sum: "Lack of Parameter" }));
     } else {
-        res.send("<h2 style='color: red'>Wrong Parameter</h2>");
+        res.send(JSON.stringify({ sum: "Wrong Parameter" }));
     }
 });
 
-// assignment 5
 app.get("/myName", (req, res) => {
     let userName = req.cookies.userName;
     if (userName) {
@@ -42,12 +41,6 @@ app.get("/myName", (req, res) => {
     } else {
         res.render("form");
     }
-});
-
-app.get("/trackName", (req, res) => {
-    let queryName = req.query.name;
-    res.cookie("userName", queryName);
-    res.redirect("/myName");
 });
 
 app.post("/trackName", (req, res) => {

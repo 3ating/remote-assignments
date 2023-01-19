@@ -16,23 +16,19 @@
         <script>
             function getNumber() {
                 let num = document.getElementById("num-input").value;
-                if (!isNaN(num)) {
-                    fetch(`http://localhost:3000/getData?number=${num}`, {
-                        method: "GET",
-                        mode: "cors",
-                        headers: {
-                            authToken: "token",
-                            "Content-Type": "application/json",
-                        },
+                fetch(`http://localhost:3000/getData?number=${num}`, {
+                    method: "GET",
+                    mode: "cors",
+                    headers: {
+                        authToken: "token",
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        document.querySelector("#result").innerHTML = data.sum;
                     })
-                        .then((res) => res.json())
-                        .then((data) => {
-                            document.querySelector("#result").innerHTML = `The Answer is : ${data.sum}`;
-                        })
-                        .catch((err) => console.error(err));
-                } else {
-                    document.querySelector("#result").innerHTML = "Please input a number!";
-                }
+                    .catch((err) => console.error(err));
             }
         </script>
     </body>
