@@ -1,0 +1,15 @@
+ul{
+    width:660px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style-type:none;
+}
+ul li{
+    text-align: center;
+    width:200px;
+    height:60px;
+    color:rgb(1, 0, 0);
+    background-color:#f3eeac;
+    padding:10px;
+    margin:2px;
+}
