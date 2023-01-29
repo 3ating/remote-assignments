@@ -1,9 +1,7 @@
 import React from "react";
 
-export default function Navigator({ navigator, setNavigator }) {
-    function handleMenu() {
-        setNavigator(!navigator);
-    }
+export default function Navigator({ handleMenu, navigator }) {
+    const items = ["Item 1 ", "Item 2 ", "Item 3 ", "Item 4"];
     return (
         <>
             <div className='navigator'>
@@ -17,17 +15,17 @@ export default function Navigator({ navigator, setNavigator }) {
                     </span>
                 </button>
                 <div className='menuItems'>
-                    <a>Item 1</a>
-                    <a>Item 2</a>
-                    <a>Item 3</a>
-                    <a>Item 4</a>
+                    {items.map((item, index) => (
+                        <a key={index}>{item}</a>
+                    ))}
                 </div>
             </div>
             <div id={navigator ? "closeIcon" : "show"} className='mobile-menu'>
-                <a className='menu-text1'>Item 1</a>
-                <a className='menu-text'>Item 2</a>
-                <a className='menu-text'>Item 3</a>
-                <a className='menu-text'>Item 4</a>
+                {items.map((item, index) => (
+                    <a key={index} className='menu-text'>
+                        {item}
+                    </a>
+                ))}
             </div>
         </>
     );

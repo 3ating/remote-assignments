@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import Container from "./componments/Container";
-import Navigator from "./componments/Navigator";
-import Hidedcontainer from "./componments/Hidedcontainer";
+import Container from "./components/Container";
+import Navigator from "./components/Navigator";
+import Message from "./components/Message";
 
 function App() {
     const [action, setAction] = useState(true);
-    const [message, setMessage] = useState("Welcome Message");
     const [navigator, setNavigator] = useState(true);
+    const [message, setMessage] = useState("Welcome Message");
+
+    function handleMenu() {
+        setNavigator(!navigator);
+    }
 
     function handleMessage() {
         setMessage("Have a Good Time!");
@@ -19,16 +23,9 @@ function App() {
 
     return (
         <div className='container'>
-            <Navigator navigator={navigator} setNavigator={setNavigator} />
-            <div onClick={handleMessage}>
-                <h1 className='wel-message'>{message}</h1>
-            </div>
-            <h2 className='sec-title'>Section Title</h2>
-            <Container />
-            <button onClick={handleAction} className='action-btn'>
-                <p>Call to Action</p>
-            </button>
-            <Hidedcontainer action={action} />
+            <Navigator navigator={navigator} handleMenu={handleMenu} />
+            <Message message={message} handleMessage={handleMessage} />
+            <Container action={action} handleAction={handleAction} />
         </div>
     );
 }
