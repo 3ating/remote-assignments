@@ -6,32 +6,31 @@ import Hidedcontainer from "./componments/Hidedcontainer";
 
 function App() {
     const [action, setAction] = useState(true);
+    const [hide, setHide] = useState("none");
+    const [message, setMessage] = useState("Welcome Message");
+    const [navigator, setNavigator] = useState(true);
+
     function handleMessage() {
-        const welMessage = document.querySelector(".wel-message");
-        welMessage.textContent = "Have a Good Time!";
+        setMessage("Have a Good Time!");
     }
+
     function handleAction() {
-        const hidedBox = document.querySelector(".box-container-hided");
-        if (action === true) {
-            hidedBox.style.display = "flex";
-            setAction(!action);
-        } else if (action === false) {
-            hidedBox.style.display = "none";
-            setAction(!action);
-        }
+        setAction(!action);
+        action ? setHide("flex") : setHide("none");
     }
+
     return (
         <div className='container'>
-            <Navigator />
+            <Navigator navigator={navigator} setNavigator={setNavigator} />
             <div onClick={handleMessage}>
-                <h1 className='wel-message'>Welcome Message</h1>
+                <h1 className='wel-message'>{message}</h1>
             </div>
             <h2 className='sec-title'>Section Title</h2>
             <Container />
             <button onClick={handleAction} className='action-btn'>
                 <p>Call to Action</p>
             </button>
-            <Hidedcontainer />
+            <Hidedcontainer hide={hide} />
         </div>
     );
 }

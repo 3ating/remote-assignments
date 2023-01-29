@@ -1,33 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Navigator() {
-    const [navigator, setNavigator] = useState(true);
+export default function Navigator({ navigator, setNavigator }) {
     function handleMenu() {
-        const mobileMenu = document.querySelector(".mobile-menu");
-        const menuIcon = document.querySelector("#menuIcon");
-        const closeIcon = document.querySelector("#closeIcon");
-
-        if (navigator === true) {
-            menuIcon.style.display = "none";
-            mobileMenu.style.display = "flex";
-            closeIcon.style.display = "flex";
-            setNavigator(!navigator);
-        } else if (navigator === false) {
-            menuIcon.style.display = "";
-            mobileMenu.style.display = "none";
-            closeIcon.style.display = "none";
-            setNavigator(!navigator);
-        }
+        setNavigator(!navigator);
     }
     return (
         <>
             <div className='navigator'>
                 <span className='logo'>Website Title / Logo</span>
                 <button onClick={handleMenu} className='btn'>
-                    <span id='menuIcon' className='material-symbols-outlined'>
+                    <span
+                        id='menuIcon'
+                        className='material-symbols-outlined'
+                        style={navigator ? { display: "" } : { display: "none" }}
+                    >
                         menu
                     </span>
-                    <span id='closeIcon' className='material-symbols-outlined'>
+                    <span
+                        id='closeIcon'
+                        className='material-symbols-outlined'
+                        style={navigator ? { display: "none" } : { display: "flex" }}
+                    >
                         close
                     </span>
                 </button>
@@ -38,7 +31,7 @@ export default function Navigator() {
                     <a>Item 4</a>
                 </div>
             </div>
-            <div className='mobile-menu'>
+            <div className='mobile-menu' style={navigator ? { display: "none" } : { display: "flex" }}>
                 <a className='menu-text1'>Item 1</a>
                 <a className='menu-text'>Item 2</a>
                 <a className='menu-text'>Item 3</a>

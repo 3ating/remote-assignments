@@ -1,8 +1,7 @@
 function delayedResult(n1, n2, delayTime, callback) {
-    setTimeout(calculator, delayTime);
-    function calculator() {
-        console.log(n1 + n2 + " (" + n1 + "+" + n2 + ")");
-    }
+    window.setTimeout(() => {
+        callback(n1 + n2 + " (" + n1 + "+" + n2 + ")");
+    }, delayTime);
 }
 delayedResult(4, 5, 3000, function (result) {
     console.log(result);
