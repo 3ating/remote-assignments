@@ -99,6 +99,22 @@ h1 {
     display: none;
 }
 
+.show {
+    display: flex;
+}
+
+#show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+#hide {
+    display: none;
+}
+
 @media screen and (min-width: 500px) and (max-width: 800px) {
     .box-container, .box-container-hided {
         flex-direction: row;

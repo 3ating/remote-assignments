@@ -6,7 +6,6 @@ import Hidedcontainer from "./componments/Hidedcontainer";
 
 function App() {
     const [action, setAction] = useState(true);
-    const [hide, setHide] = useState("none");
     const [message, setMessage] = useState("Welcome Message");
     const [navigator, setNavigator] = useState(true);
 
@@ -16,7 +15,6 @@ function App() {
 
     function handleAction() {
         setAction(!action);
-        action ? setHide("flex") : setHide("none");
     }
 
     return (
@@ -30,7 +28,7 @@ function App() {
             <button onClick={handleAction} className='action-btn'>
                 <p>Call to Action</p>
             </button>
-            <Hidedcontainer hide={hide} />
+            <Hidedcontainer action={action} />
         </div>
     );
 }

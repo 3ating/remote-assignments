@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Hidedcontainer({ hide }) {
+export default function Hidedcontainer({ action }) {
     return (
-        <div className='box-container-hided' style={{ display: hide }}>
+        <div className={`box-container-hided ${action ? "hide" : "show"}`}>
             <div id='content-box' className='content-box'>
                 <p className='box'>Content Box 5</p>
             </div>

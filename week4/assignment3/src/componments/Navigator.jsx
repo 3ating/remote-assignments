@@ -9,18 +9,10 @@ export default function Navigator({ navigator, setNavigator }) {
             <div className='navigator'>
                 <span className='logo'>Website Title / Logo</span>
                 <button onClick={handleMenu} className='btn'>
-                    <span
-                        id='menuIcon'
-                        className='material-symbols-outlined'
-                        style={navigator ? { display: "" } : { display: "none" }}
-                    >
+                    <span id={navigator ? "menuIcon" : "hide"} className='material-symbols-outlined'>
                         menu
                     </span>
-                    <span
-                        id='closeIcon'
-                        className='material-symbols-outlined'
-                        style={navigator ? { display: "none" } : { display: "flex" }}
-                    >
+                    <span id={navigator ? "closeIcon" : "show"} className='material-symbols-outlined'>
                         close
                     </span>
                 </button>
@@ -31,7 +23,7 @@ export default function Navigator({ navigator, setNavigator }) {
                     <a>Item 4</a>
                 </div>
             </div>
-            <div className='mobile-menu' style={navigator ? { display: "none" } : { display: "flex" }}>
+            <div id={navigator ? "closeIcon" : "show"} className='mobile-menu'>
                 <a className='menu-text1'>Item 1</a>
                 <a className='menu-text'>Item 2</a>
                 <a className='menu-text'>Item 3</a>
