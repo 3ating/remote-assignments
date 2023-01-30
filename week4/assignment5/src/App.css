@@ -1,0 +1,23 @@
+.container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 50px 20%;
+    text-align: center;
+
+}
+
+.num {
+  display: inline-block;
+  border: 2px solid yellowgreen;
+  width: 10%;
+  margin-right: 3px;
+}
+
+.count {
+  display: inline-block;
+  border: 2px solid blue;
+  width: 10%;
+  margin-left: 3px;
+
+}
