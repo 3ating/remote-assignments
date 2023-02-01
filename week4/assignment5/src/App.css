@@ -7,6 +7,11 @@
 
 }
 
+.add-one {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .num {
   display: inline-block;
   border: 2px solid yellowgreen;

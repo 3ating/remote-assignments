@@ -1,10 +1,16 @@
 import React from "react";
 
-export default function Counter({ num, count }) {
+export default function Counter({ value, setValue }) {
+    function increment() {
+        setValue(value + 1);
+    }
+
     return (
         <div>
-            <h1 className='num'>{num}</h1>
-            <h1 className='count'>{count}</h1>
+            <button className='add-one' onClick={increment}>
+                +1
+            </button>
+            <h1 className='num'>{value}</h1>
         </div>
     );
 }

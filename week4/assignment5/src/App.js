@@ -3,24 +3,27 @@ import "./App.css";
 import Counter from "./components/Counter";
 
 function App() {
-    const [num, setNum] = useState(1);
-    const [count, setCount] = useState(0);
+    const [counters, setCounters] = useState([0, 0, 0]);
 
-    function handleAdd() {
-        setNum(num + 1);
+    function handleAddAll() {
+        setCounters(counters.map((counter) => counter + 1));
     }
 
-    function handleCount() {
-        setCount(count + 1);
+    function handleAddCounter() {
+        setCounters([...counters, 0]);
     }
 
     return (
         <div className='container'>
-            <button onClick={handleAdd}>All + 1</button>
-            <Counter num={num} count={count} />
-            <Counter num={num} count={count} />
-            <Counter num={num} count={count} />
-            <button onClick={handleCount}>Add a Counter</button>
+            <button onClick={handleAddAll}>All + 1</button>
+            {counters.map((counter, index) => (
+                <Counter
+                    key={index}
+                    value={counter}
+                    setValue={(value) => setCounters(counters.map((c, i) => (i === index ? value : c)))}
+                />
+            ))}
+            <button onClick={handleAddCounter}>Add a Counter</button>
         </div>
     );
 }
